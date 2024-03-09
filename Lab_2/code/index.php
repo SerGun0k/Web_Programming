@@ -122,8 +122,10 @@ echo "\n", "Кол-во эл-ов для суммы > 10: $count";
 
 function printStringReturnNumber($str) {
     echo "\n", $str;
-    return intval($str); // любое числовое значение
+    return intval($str);
 }
 
-$my_num = printStringReturnNumber("5");
+$my_num = printStringReturnNumber("666");
 echo "\n", $my_num;
+
+// 16
