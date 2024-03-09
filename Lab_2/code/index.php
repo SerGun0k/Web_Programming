@@ -129,3 +129,45 @@ $my_num = printStringReturnNumber("666");
 echo "\n", $my_num;
 
 // 16
+function increaseEnthusiasm($str) {
+    return $str . "!";
+}
+
+function repeatThreeTimes($str) {
+    return $str . $str . $str;
+}
+
+$string = "Hi-Fi";
+echo increaseEnthusiasm($string) . "\n";
+echo repeatThreeTimes($string) . "\n";
+
+echo increaseEnthusiasm(repeatThreeTimes($string)) . "\n";
+
+function cut($str, $length = 10) {
+    return substr($str, 0, $length);
+}
+
+echo cut("bim-bim_bam-bam", 7) . "\n";
+
+function printArray($array, $index = 0) {
+    if ($index < count($array)) {
+        echo $array[$index] . "\n";
+        printArray($array, $index + 1);
+    }
+}
+
+$array = [1, 2, 0, 0, 4];
+printArray($array);
+
+function sumDigits($curr) {
+    $sum = array_sum(str_split($curr));
+    if ($sum > 9) {
+        return sumDigits($sum);
+    } else {
+        return $sum;
+    }
+}
+
+echo sumDigits(803) . "\n";
+
+// 17
