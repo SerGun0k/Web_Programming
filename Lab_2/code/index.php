@@ -44,3 +44,41 @@ $answer -= 2;
 $answer /= 2;
 $answer -= $my_num;
 echo "\n", $answer;
+
+// 14
+$a = 10; $b = 3;
+echo "\n", $a % $b;
+
+if ($a % $b == 0) {
+    echo "\n", 'Делиться: '. ($a / $b);
+}
+else {
+    echo "\n", "Делиться с остатком: ". ($a % $b);
+}
+
+$st = 2**10; //pow(2, 10)
+echo "\n", $st, "\n", 245**0.5; // sqrt(245)
+$array = [4, 2, 5, 19, 13, 0, 10];
+$sum = 0;
+foreach($array as $key) {
+    $sum += $key ** 2;
+}
+echo "\n", sqrt($sum);
+$c = 379;
+echo "\n", round(sqrt($c));
+echo "\n", round(sqrt($c), 1);
+echo "\n", round(sqrt($c), 2);
+
+echo "\n", "Корень из 587: " . ceil(sqrt(587)) . ", " . floor(sqrt(587));
+
+$array = [4, -2, 5, 19, -130, 0, 10];
+echo "\n", "Минимальное число: " , min($array);
+echo "\n", "Максимальное число: " , max($array);
+
+echo "\n", "Случайное число от 1 до 100: ", rand(1, 100), "\n";
+
+$random_numbers = [];
+for ($i = 0; $i < 10; $i++) {
+    $random_numbers[] = rand();
+}
+var_dump($random_numbers);
