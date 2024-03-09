@@ -138,20 +138,20 @@ function repeatThreeTimes($str) {
 }
 
 $string = "Hi-Fi";
-echo increaseEnthusiasm($string) . "\n";
-echo repeatThreeTimes($string) . "\n";
+echo increaseEnthusiasm($string) , "\n";
+echo repeatThreeTimes($string) , "\n";
 
-echo increaseEnthusiasm(repeatThreeTimes($string)) . "\n";
+echo increaseEnthusiasm(repeatThreeTimes($string)) , "\n";
 
 function cut($str, $length = 10) {
     return substr($str, 0, $length);
 }
 
-echo cut("bim-bim_bam-bam", 7) . "\n";
+echo cut("bim-bim_bam-bam", 7) , "\n";
 
 function printArray($array, $index = 0) {
     if ($index < count($array)) {
-        echo $array[$index] . "\n";
+        echo $array[$index] , "\n";
         printArray($array, $index + 1);
     }
 }
@@ -168,6 +168,144 @@ function sumDigits($curr) {
     }
 }
 
-echo sumDigits(803) . "\n";
+echo sumDigits(803) , "\n";
 
 // 17
+$array = [];
+for ($i = 1; $i <= 5; $i++) {
+    $array[] = str_repeat('x', $i);
+}
+var_dump($array);
+
+echo "\n";
+function arrayFill($value, $count)
+{
+    return array_fill(0, $count, $value);
+}
+
+$resultArray = arrayFill('x', 5);
+var_dump($resultArray);
+
+echo "\n";
+
+$array2D = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+$sum = 0;
+foreach ($array2D as $i) {
+    foreach ($i as $j) {
+        $sum += $j;
+    }
+}
+echo $sum. "\n";
+
+$c = 1;
+$Array = [];
+for ($i = 0; $i < 3; $i++) {
+    $A = [];
+    for ($j = 0; $j < 3; $j++) {
+        $A[] = $c++;
+    }
+    $Array[] = $A;
+}
+print_r($Array);
+echo "\n";
+
+$AArray = [2, 5, 3, 9];
+$result = ($AArray[0] * $AArray[1]) + ($AArray[2] * $AArray[3]);
+echo $result , "\n";
+
+
+$user = ['name' => 'Anton', 'surname' => 'Mulitca', 'patronymic' => 'Gennadievich'];
+echo $user['surname'] . ' ' . $user['name'] . ' ' . $user['patronymic'] , "\n";
+
+
+$date = ['year' => date('Y'), 'month' => date('m'), 'day' => date('d')];
+echo $date['year'] . '-' . $date['month'] . '-' . $date['day'] , "\n";
+
+
+$arr = ['a', 'b', 'c', 'd', 'e'];
+echo count($arr) , "\n";
+
+
+echo end($arr) , "\n";
+prev($arr);
+echo current($arr) , "\n";
+
+// 18
+function checkSum($num1, $num2) {
+    return ($num1 + $num2 > 10) ? true : false;
+}
+
+echo checkSum(52, 2) ? 'true' : 'false';
+echo "\n";
+
+
+function checkEqual($num1, $num2) {
+    return ($num1 == $num2) ? true : false;
+}
+
+echo checkEqual(33, 33) ? 'true' : 'false';
+echo "\n";
+
+
+$test = 0;
+echo ($test == 0) ? 'верно' : '';
+
+echo "\n";
+
+$age = 19;
+if ($age < 10 || $age > 99) {
+    echo "Число вне диапазона.";
+} else {
+    $sum = array_sum(str_split($age));
+    if ($sum <= 9) {
+        echo "Сумма цифр однозначна.";
+    } else {
+        echo "Сумма цифр двузначна.";
+    }
+}
+
+echo "\n";
+
+$arr = [1, 2, 3];
+if (count($arr) == 3) {
+    echo array_sum($arr);
+}
+
+echo "\n";
+
+
+// 19
+for ($i = 1; $i <= 20; $i++) {
+    echo str_repeat('x', $i) . "\n";
+}
+
+
+// 20
+$array = [0, 1, 2, 3, 4, 5, 6];
+$average = array_sum($array) / count($array);
+echo "Среднее арифметическое: $average \n";
+
+
+$sum = (1 + 100) * 100 / 2;
+echo "Сумма чисел от 1 до 100: $sum \n";
+
+
+$array = [1, 25, 49];
+$squareRoots = array_map('sqrt', $array);
+print_r($squareRoots);
+echo "\n";
+
+
+$letters = range('a', 'z');
+$numb = range(1, 26);
+$abcArray = array_combine($letters, $numb);
+print_r($abcArray);
+echo "\n";
+
+
+$string = '1234567890';
+$numb = str_split($string, 2);
+$sum = array_sum($numb);
+echo $sum, "\n";
+
+echo "\n";
