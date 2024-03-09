@@ -82,3 +82,48 @@ for ($i = 0; $i < 10; $i++) {
     $random_numbers[] = rand();
 }
 var_dump($random_numbers);
+
+$a = 5;
+$b = 6;
+echo "\n", abs($a - $b);
+$a = 100;
+$b = 101;
+echo "\n", abs($b - $a);
+
+$array = [1, 2, -1, -2, 3, -3];
+for ($i = 0; $i < count($array); $i++){
+    $array[$i] = abs($array[$i]);
+}
+var_dump($array);
+
+
+
+$numb = 30;
+$divisors = [];
+for ($i = 1; $i <= $numb; $i++) {
+    if ($numb % $i == 0) {
+        $divisors[] = $i;
+    }
+}
+var_dump($divisors);
+$array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+$sum = 0;
+$count = 0;
+foreach ($array as $num) {
+    $sum += $num;
+    $count++;
+    if ($sum > 10) {
+        break;
+    }
+}
+echo "\n", "Кол-во эл-ов для суммы > 10: $count";
+
+// 16
+
+function printStringReturnNumber($str) {
+    echo "\n", $str;
+    return intval($str); // любое числовое значение
+}
+
+$my_num = printStringReturnNumber("5");
+echo "\n", $my_num;
