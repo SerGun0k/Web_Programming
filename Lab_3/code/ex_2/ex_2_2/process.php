@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     );
 
     // Перенаправляем пользователя на другую страницу
-    header("Location: display.php");
+    header("Location: display_3.php");
     exit();
 }
 ?>
