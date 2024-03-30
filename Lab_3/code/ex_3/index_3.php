@@ -29,7 +29,7 @@
         <th>Текст объявления</th>
     </tr>
     <?php
-    $categories = ['недвижимость', 'работа'];
+    $categories = ['Недвижимость', 'Работа'];
     foreach ($categories as $category) {
         $dir = "./$category/";
         if (is_dir($dir)) {
