@@ -2,32 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Доска объявлений</title>
 </head>
 <body>
 <h1>Доска объявлений</h1>
 
-<form action="add_ad_3.php" method="post">
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email" required><br>
-
-    <label for="category">Category:</label><br>
-    <select id="category" name="category">
-        <option value="realty">realty</option>
-        <option value="work">Work</option>
+<h2>Добавить объявление</h2>
+<form action="post_ad_3.php" method="post">
+    Email: <input type="email" name="email" required><br>
+    Категория:
+    <select name="category">
+        <option value="Недвижимость">Недвижимость</option>
+        <option value="Работа">Работа</option>
     </select><br>
-
-    <label for="title">Headline:</label><br>
-    <input type="text" id="title" name="title" required><br>
-
-    <label for="text">Announcement text:</label><br>
-    <textarea id="text" name="text" rows="4" cols="50" required></textarea><br>
-
-    <input type="submit" value="Add">
+    Заголовок объявления: <input type="text" name="title" required><br>
+    Текст объявления: <textarea name="description" required></textarea><br>
+    <input type="submit" value="Добавить">
 </form>
-
-<hr>
 
 <h2>Список объявлений</h2>
 <table border="1">
@@ -35,9 +26,29 @@
         <th>Email</th>
         <th>Категория</th>
         <th>Заголовок</th>
-        <th>Текст</th>
+        <th>Текст объявления</th>
     </tr>
-    <?php include 'display_ads_3.php'; ?>
+    <?php
+    $categories = ['недвижимость', 'работа'];
+    foreach ($categories as $category) {
+        $dir = "./$category/";
+        if (is_dir($dir)) {
+            $files = scandir($dir);
+            foreach ($files as $file) {
+                if ($file != '.' && $file != '..') {
+                    $ad_content = file_get_contents($dir . $file);
+                    $ad_data = explode("\n", $ad_content);
+                    echo "<tr>";
+                    echo "<td>" . $ad_data[0] . "</td>";
+                    echo "<td>" . $category . "</td>";
+                    echo "<td>" . basename($file, ".txt") . "</td>";
+                    echo "<td>" . $ad_data[1] . "</td>";
+                    echo "</tr>";
+                }
+            }
+        }
+    }
+    ?>
 </table>
 </body>
 </html>
