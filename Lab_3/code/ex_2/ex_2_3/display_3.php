@@ -1,3 +1,7 @@
+<?php
+
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,11 +13,7 @@
 <h2>User Data:</h2>
 <ul>
     <?php
-    session_start();
-
-    // Проверяем, есть ли сохраненные данные в сессии
     if (isset($_SESSION['userData'])) {
-        // Перебираем сохраненные данные и выводим каждый элемент в отдельном теге li
         foreach ($_SESSION['userData'] as $key => $value) {
             echo "<li><strong>$key:</strong> $value</li>";
         }
