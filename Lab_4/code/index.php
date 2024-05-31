@@ -43,4 +43,36 @@
         </tr>
         </thead>
         <tbody>
-<?php
+        <?php
+        // Чтение данных из Google Sheets
+        $id = '1fNfud1je_jPrTyt1Et1-wTjSWepw8H9jSUY7FSVhoE0';
+        $gid = 0;
+        $csv = @file_get_contents('https://docs.google.com/spreadsheets/d/' . $id . '/export?format=csv&gid=' . $gid);
+
+        if ($csv !== false) {
+            $csv = array_filter(explode("\r\n", $csv)); // Фильтрация пустых строк
+            $array = array_map('str_getcsv', $csv);
+
+            // Вывод объявлений на сайте
+            $html = '';
+            foreach ($array as $row) {
+                if (count($row) >= 4) { // Убедимся, что в строке достаточно столбцов
+                    $html .= '<tr>';
+                    $html .= '<td>' . htmlspecialchars($row[0]) . '</td>';
+                    $html .= '<td>' . htmlspecialchars($row[1]) . '</td>';
+                    $html .= '<td>' . htmlspecialchars($row[2]) . '</td>';
+                    $html .= '<td>' . htmlspecialchars($row[3]) . '</td>';
+                    $html .= '</tr>';
+                }
+            }
+
+            echo $html;
+        } else {
+            echo '<tr><td colspan="4">Не удалось получить данные из Google Sheets.</td></tr>';
+        }
+        ?>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
